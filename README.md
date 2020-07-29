@@ -1,14 +1,9 @@
-# cp-crt
-Conditional Power for Cluster-Randomized Trials (CRTs) with Interval-Censored Endpoints
-
----
+# Conditional Power for Cluster-Randomized Trials (CRTs) with Interval-Censored Endpoints
 
 This repository contains all of the data and code needed to replicate the simulation studies and to reproduce the data analysis in the manuscript entitled "Estimation of Conditional Power for Cluster-Randomized Trials with Interval-Censored Endpoints". Code is licensed under the MIT License, and data under the CC-0 License.
 
 
 ## data Folder
-
----
 
 This folder contains the data imported in the scripts **data-application.R** and **figure-table-generation.R**. Contents are as follows:
 
@@ -26,16 +21,20 @@ This folder contains the data imported in the scripts **data-application.R** and
 
 | Variable Name           | Description                                                                                           | Variable Type |
 |-------------------------|-------------------------------------------------------------------------------------------------------|---------------|
-| M                       | Number of clusters in the simulated interim dataset                                                   | Integer       |
-| t.dist                  | Data-generating time-to-event distribution                                                            | Character     |
-| hazard                  | Data-generating baseline hazard, <img src="https://render.githubusercontent.com/render/math?math=\lambda_0">                                                                       | Numeric       |
-| hr                      | Data-generating hazard ratio, <img src="https://render.githubusercontent.com/render/math?math=e^{\beta}">                                                                          | Numeric       |
+| M                       | Number of clusters in the simulated CRT dataset                                                   | Integer       |
+| hazard                  | Data-generating baseline hazard function, <img src="https://render.githubusercontent.com/render/math?math=\lambda_0">                                                                       | Numeric       |
+| hr                      | Data-generating hazard ratio, <img src="https://render.githubusercontent.com/render/math?math=\exp\{\beta\}">                                                                          | Numeric       |
 | f.dist                  | Data-generating frailty distribution                                                                  | Character     |
 | f.theta                 | Data-generating frailty parameter, <img src="https://render.githubusercontent.com/render/math?math=\theta">                                                                     | Numeric       |
-| cens                    | Data-generating loss to follow-up rate, <img src="https://render.githubusercontent.com/render/math?math=\lambda_C">                                                                | Numeric       |
+| actual.f.theta | Estimated <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> in the simulated completed CRT | Numeric |
+| int.f.theta | Estimated <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> in the corresponding interim dataset | Numeric |
+| actual.hazard.0 | Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{0}"> in the simulated completed CRT | Numeric |
+| int.hazard.0 | Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{0}"> in the corresponding interim dataset | Numeric |
+| actual.hazard.1 | Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{1}"> in the simulated completed CRT | Numeric |
+| int.hazard.1 | Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{1}"> in the corresponding interim dataset | Numeric |
 | power                   | Simulated power of the CRT design                                                                     | Numeric       |
 | cp                      | Estimated conditional power of the simulated interim dataset                                          | Numeric       |
-| proj.mean.f.theta       | Mean estimated <img src="https://render.githubusercontent.com/render/math?math=theta"> across the 500 projected complete-trial datasets                     | Numeric       |
+| proj.mean.f.theta       | Mean estimated <img src="https://render.githubusercontent.com/render/math?math=\theta"> across the 500 projected complete-trial datasets                     | Numeric       |
 | proj.mse.f.theta.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> as an estimator of the observed complete-trial quantity | Numeric       |
 | proj.mean.hazard.0 | Mean estimated hazard in the control arm, <img src="https://render.githubusercontent.com/render/math?math=\lambda_0">, across the 500 projected complete-trial datasets | Numeric | 
 | proj.mse.hazard.0.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_0"> as an estimator of the observed complete-trial quantity | Numeric       |
@@ -49,6 +48,91 @@ This folder contains the data imported in the scripts **data-application.R** and
 | known.mean.hazard.1 | Mean estimated hazard in the intervention arm, <img src="https://render.githubusercontent.com/render/math?math=\lambda_1">, across the 500 projected complete-trial datasets | Numeric | 
 | known.mse.hazard.1.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_1"> as an estimator of the observed complete-trial quantity | Numeric       |
 
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky">Variable Name</th>
+    <th class="tg-0pky">Description</th>
+    <th class="tg-0pky">Variable Type</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">M</td>
+    <td class="tg-0pky">Number of clusters in the simulated interim dataset</td>
+    <td class="tg-0pky">Integer</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">t.dist</td>
+    <td class="tg-0pky">Data-generating time-to-event distribution</td>
+    <td class="tg-0pky">Character</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">hazard</td>
+    <td class="tg-0pky">Data-generating baseline hazard</td>
+    <td class="tg-0pky">Numeric</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">hr</td>
+    <td class="tg-0pky">Data-generating hazard ratio</td>
+    <td class="tg-0pky">Numeric</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">f.dist</td>
+    <td class="tg-0pky">Data-generating frailty distribution</td>
+    <td class="tg-0pky">Character</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">f.theta</td>
+    <td class="tg-0pky">Data-generating frailty parameter</td>
+    <td class="tg-0pky">Numeric</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">cens</td>
+    <td class="tg-0pky">Data-generating loss to follow-up rate</td>
+    <td class="tg-0pky">Numeric</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">power</td>
+    <td class="tg-0pky">Simulated power of the CRT design</td>
+    <td class="tg-0pky">Numeric</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">cp</td>
+    <td class="tg-0pky">Estimated conditional power of the simulated interim dataset</td>
+    <td class="tg-0pky">Numeric</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">proj.mean.f.theta</td>
+    <td class="tg-0pky">Mean estimated frailty parameter across the 500 projected complete-trial datasets</td>
+    <td class="tg-0pky">Numeric</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">proj.mse.f.theta.actual</td>
+    <td class="tg-0pky">MSE of these 500 projected frailty parameters as an estimator of the observed complete-trial quantity</td>
+    <td class="tg-0pky">Numeric</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+</tbody>
+</table>
 
 % Mention what packages will need to be installed 
 % All scripts load the necessary packages, and are written assuming that cp-crt is the working directory
