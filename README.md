@@ -49,14 +49,6 @@ This folder contains the data imported in the scripts **data-application.R** and
 | known.mse.hazard.1.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_1"> as an estimator of the observed complete-trial quantity | Numeric       |
 
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -66,24 +58,22 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
 </thead>
 <tbody>
+	<tr>
+    <td colspan="3", class="tg-c3ow">Attributes of the CRT Design</td>
+  </tr>
   <tr>
     <td class="tg-0pky">M</td>
-    <td class="tg-0pky">Number of clusters in the simulated interim dataset</td>
+    <td class="tg-0pky">Number of clusters in the simulated CRT dataset</td>
     <td class="tg-0pky">Integer</td>
   </tr>
   <tr>
-    <td class="tg-0pky">t.dist</td>
-    <td class="tg-0pky">Data-generating time-to-event distribution</td>
-    <td class="tg-0pky">Character</td>
-  </tr>
-  <tr>
     <td class="tg-0pky">hazard</td>
-    <td class="tg-0pky">Data-generating baseline hazard</td>
+    <td class="tg-0pky">Data-generating baseline hazard function, <img src="https://render.githubusercontent.com/render/math?math=\lambda_0"></td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
     <td class="tg-0pky">hr</td>
-    <td class="tg-0pky">Data-generating hazard ratio</td>
+    <td class="tg-0pky">Data-generating hazard ratio, <img src="https://render.githubusercontent.com/render/math?math=\exp\{\beta\}"></td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
@@ -93,7 +83,7 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
   <tr>
     <td class="tg-0pky">f.theta</td>
-    <td class="tg-0pky">Data-generating frailty parameter</td>
+    <td class="tg-0pky">Data-generating frailty parameter, <img src="https://render.githubusercontent.com/render/math?math=\theta"></td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
