@@ -29,7 +29,7 @@ This folder contains the data imported in the scripts **data-application.R** and
 </thead>
 <tbody>
    <tr>
-    	<td colspan="3" class="tg-c3ow"><b>Attributes of the CRT Design</b></td>
+    	<td colspan="3" class="tg-c3ow" style="text-align:center">Attributes of the CRT Design</td>
   </tr>
   <tr>
     <td class="tg-0pky">M</td>
@@ -62,7 +62,7 @@ This folder contains the data imported in the scripts **data-application.R** and
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
-    	<td colspan="3" class="tg-c3ow"><b>Features of the Simulated Complete and Interim Datasets</b></td>
+    	<td colspan="3" class="tg-c3ow" style="text-align:center">Features of the Simulated Complete and Interim Datasets</td>
   </tr>
   <tr>
     <td class="tg-0pky">actual.f.theta</td>
@@ -95,7 +95,7 @@ This folder contains the data imported in the scripts **data-application.R** and
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
-    	<td colspan="3" class="tg-c3ow"><b>Conditional Power Using</b> <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{0}"><b>,</b> <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{1}"><b>,</b> <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"><b>, and</b> <img src="https://render.githubusercontent.com/render/math?math=\hat{\eta}"> <b>as Estimated at Interim</b></td>
+    	<td colspan="3" class="tg-c3ow" style="text-align:center">Conditional Power Using the Interim-Estimated (<img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{0}">, <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{1}">, <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}">, <img src="https://render.githubusercontent.com/render/math?math=\hat{\eta}">)</td>
   </tr>
   <tr>
     <td class="tg-0pky">cp</td>
@@ -133,7 +133,7 @@ This folder contains the data imported in the scripts **data-application.R** and
     <td class="tg-0pky">Numeric</td>
   </tr>
    <tr>
-   	<td colspan="3" class="tg-c3ow"><b>Conditional Power Using the Data-Generating</b> <img src="https://render.githubusercontent.com/render/math?math=\lambda_{0}"><b>,</b> <img src="https://render.githubusercontent.com/render/math?math=\lambda_{1}"><b>,</b> <img src="https://render.githubusercontent.com/render/math?math=\theta"><b>, and</b> <img src="https://render.githubusercontent.com/render/math?math=\bm{\eta}"></td>
+   	<td colspan="3" class="tg-c3ow" style="text-align:center">Conditional Power Using the Data-Generating (<img src="https://render.githubusercontent.com/render/math?math=\lambda_{0}">, <img src="https://render.githubusercontent.com/render/math?math=\lambda_{1}">, <img src="https://render.githubusercontent.com/render/math?math=\theta">, <img src="https://render.githubusercontent.com/render/math?math=\bm{\eta}">)</td>
   </tr>
   <tr>
     <td class="tg-0pky">known.cp</td>
