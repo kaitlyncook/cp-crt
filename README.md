@@ -19,36 +19,6 @@ This folder contains the data imported in the scripts **data-application.R** and
 
 + **"data/simulation-results/"**: Subfolder containing all .csv simulation output files, which are subsequently processed and used to generate all manuscript figures and tables in **figure-table-generation.R**.  Select variable names and descriptions  (shared across most results files) are below.
 
-| Variable Name           | Description                                                                                           | Variable Type |
-|-------------------------|-------------------------------------------------------------------------------------------------------|---------------|
-| M                       | Number of clusters in the simulated CRT dataset                                                   | Integer       |
-| hazard                  | Data-generating baseline hazard function, <img src="https://render.githubusercontent.com/render/math?math=\lambda_0">                                                                       | Numeric       |
-| hr                      | Data-generating hazard ratio, <img src="https://render.githubusercontent.com/render/math?math=\exp\{\beta\}">                                                                          | Numeric       |
-| f.dist                  | Data-generating frailty distribution                                                                  | Character     |
-| f.theta                 | Data-generating frailty parameter, <img src="https://render.githubusercontent.com/render/math?math=\theta">                                                                     | Numeric       |
-| actual.f.theta | Estimated <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> in the simulated completed CRT | Numeric |
-| int.f.theta | Estimated <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> in the corresponding interim dataset | Numeric |
-| actual.hazard.0 | Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{0}"> in the simulated completed CRT | Numeric |
-| int.hazard.0 | Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{0}"> in the corresponding interim dataset | Numeric |
-| actual.hazard.1 | Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{1}"> in the simulated completed CRT | Numeric |
-| int.hazard.1 | Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{1}"> in the corresponding interim dataset | Numeric |
-| power                   | Simulated power of the CRT design                                                                     | Numeric       |
-| cp                      | Estimated conditional power of the simulated interim dataset                                          | Numeric       |
-| proj.mean.f.theta       | Mean estimated <img src="https://render.githubusercontent.com/render/math?math=\theta"> across the 500 projected complete-trial datasets                     | Numeric       |
-| proj.mse.f.theta.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> as an estimator of the observed complete-trial quantity | Numeric       |
-| proj.mean.hazard.0 | Mean estimated hazard in the control arm, <img src="https://render.githubusercontent.com/render/math?math=\lambda_0">, across the 500 projected complete-trial datasets | Numeric | 
-| proj.mse.hazard.0.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_0"> as an estimator of the observed complete-trial quantity | Numeric       |
-| proj.mean.hazard.1 | Mean estimated hazard in the intervention arm, <img src="https://render.githubusercontent.com/render/math?math=\lambda_1">, across the 500 projected complete-trial datasets | Numeric | 
-| proj.mse.hazard.1.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_1"> as an estimator of the observed complete-trial quantity | Numeric       |
-| known.cp                      | Estimated conditional power of the simulated interim dataset with <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_0">, <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_1">, and <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> set to their data-generating values                                          | Numeric       |
-| known.mean.f.theta       | Mean estimated <img src="https://render.githubusercontent.com/render/math?math=theta"> across the 500 projected complete-trial datasets                     | Numeric       |
-| known.mse.f.theta.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> as an estimator of the observed complete-trial quantity | Numeric       |
-| known.mean.hazard.0 | Mean estimated hazard in the control arm, <img src="https://render.githubusercontent.com/render/math?math=\lambda_0">, across the 500 projected complete-trial datasets | Numeric | 
-| known.mse.hazard.0.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_0"> as an estimator of the observed complete-trial quantity | Numeric       |
-| known.mean.hazard.1 | Mean estimated hazard in the intervention arm, <img src="https://render.githubusercontent.com/render/math?math=\lambda_1">, across the 500 projected complete-trial datasets | Numeric | 
-| known.mse.hazard.1.actual | MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_1"> as an estimator of the observed complete-trial quantity | Numeric       |
-
-
 <table class="tg">
 <thead>
   <tr>
@@ -59,7 +29,7 @@ This folder contains the data imported in the scripts **data-application.R** and
 </thead>
 <tbody>
    <tr>
-    	<td colspan="3" class="tg-c3ow">Attributes of the CRT Design</td>
+    	<td colspan="3" class="tg-c3ow"><b>Attributes of the CRT Design</b></td>
   </tr>
   <tr>
     <td class="tg-0pky">M</td>
@@ -92,7 +62,7 @@ This folder contains the data imported in the scripts **data-application.R** and
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
-    	<td colspan="3" class="tg-c3ow">Features of the Simulated Complete and Interim Datasets</td>
+    	<td colspan="3" class="tg-c3ow"><b>Features of the Simulated Complete and Interim Datasets</b></td>
   </tr>
   <tr>
     <td class="tg-0pky">actual.f.theta</td>
@@ -106,26 +76,26 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
   <tr>
     <td class="tg-0pky">actual.hazard.0</td>
-    <td class="tg-0pky">Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{0}"> in the simulated completed CRT</td>
+    <td class="tg-0pky">Estimated <img src="https://render.githubusercontent.com/render/math?math=\lambda_{0}"> in the simulated completed CRT</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
     <td class="tg-0pky">int.hazard.0</td>
-    <td class="tg-0pky">Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{0}"> in the corresponding interim dataset</td>
+    <td class="tg-0pky">Estimated <img src="https://render.githubusercontent.com/render/math?math=\lambda_{0}"> in the corresponding interim dataset</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
     <td class="tg-0pky">actual.hazard.1</td>
-    <td class="tg-0pky">Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{1}"> in the simulated completed CRT</td>
+    <td class="tg-0pky">Estimated <img src="https://render.githubusercontent.com/render/math?math=\lambda_{1}"> in the simulated completed CRT</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
     <td class="tg-0pky">int.hazard.1</td>
-    <td class="tg-0pky">Estimated <img src="https://render.githubusercontent.com/render/math?math=\bar{\lambda}_{1}"> in the corresponding interim dataset</td>
+    <td class="tg-0pky">Estimated <img src="https://render.githubusercontent.com/render/math?math=\lambda_{1}"> in the corresponding interim dataset</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
-    	<td colspan="3" class="tg-c3ow">Conditional Power (<img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{0}">, <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{1}">, <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}">, <img src="https://render.githubusercontent.com/render/math?math=\hat{\bm{\eta}}">)</td>
+    	<td colspan="3" class="tg-c3ow"><b>Conditional Power Using</b> <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{0}"><b>,</b> <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{1}"><b>,</b> <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"><b>, and</b> <img src="https://render.githubusercontent.com/render/math?math=\hat{\eta}"> <b>as Estimated at Interim</b></td>
   </tr>
   <tr>
     <td class="tg-0pky">cp</td>
@@ -139,7 +109,7 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
   <tr>
     <td class="tg-0pky">proj.mse.f.theta.actual</td>
-    <td class="tg-0pky">MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> as an estimator of the observed complete-trial quantity</td>
+    <td class="tg-0pky">Mean squared error of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> as an estimator of the observed complete-trial quantity (actual.f.theta)</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
@@ -149,7 +119,7 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
   <tr>
     <td class="tg-0pky">proj.mse.hazard.0.actual</td>
-    <td class="tg-0pky">MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_0"> as an estimator of the observed complete-trial quantity</td>
+    <td class="tg-0pky">Mean squared eror of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_0"> as an estimator of the observed complete-trial quantity (actual.hazard.0)</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
@@ -159,11 +129,11 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
   <tr>
     <td class="tg-0pky">proj.mse.hazard.1.actual</td>
-    <td class="tg-0pky">MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_1"> as an estimator of the observed complete-trial quantity</td>
+    <td class="tg-0pky">Mean squared error of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_1"> as an estimator of the observed complete-trial quantity (actual.hazard.1)</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
    <tr>
-   	<td colspan="3" class="tg-c3ow">Conditional Power (<img src="https://render.githubusercontent.com/render/math?math=\lambda_{0}">, <img src="https://render.githubusercontent.com/render/math?math=\lambda_{1}">, <img src="https://render.githubusercontent.com/render/math?math=\theta">, <img src="https://render.githubusercontent.com/render/math?math=\bm{\eta}">)</td>
+   	<td colspan="3" class="tg-c3ow"><b>Conditional Power Using the Data-Generating</b> <img src="https://render.githubusercontent.com/render/math?math=\lambda_{0}"><b>,</b> <img src="https://render.githubusercontent.com/render/math?math=\lambda_{1}"><b>,</b> <img src="https://render.githubusercontent.com/render/math?math=\theta"><b>, and</b> <img src="https://render.githubusercontent.com/render/math?math=\bm{\eta}"></td>
   </tr>
   <tr>
     <td class="tg-0pky">known.cp</td>
@@ -177,7 +147,7 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
   <tr>
     <td class="tg-0pky">known.mse.f.theta.actual</td>
-    <td class="tg-0pky">MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> as an estimator of the observed complete-trial quantity</td>
+    <td class="tg-0pky">Mean squared error of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}"> as an estimator of the observed complete-trial quantity (actual.f.theta)</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
@@ -187,7 +157,7 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
   <tr>
     <td class="tg-0pky">known.mse.hazard.0.actual</td>
-    <td class="tg-0pky">MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_0"> as an estimator of the observed complete-trial quantity</td>
+    <td class="tg-0pky">Mean squared error of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_0"> as an estimator of the observed complete-trial quantity (actual.hazard.0)</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
@@ -197,7 +167,7 @@ This folder contains the data imported in the scripts **data-application.R** and
   </tr>
   <tr>
     <td class="tg-0pky">known.mse.hazard.1.actual</td>
-    <td class="tg-0pky">MSE of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_1"> as an estimator of the observed complete-trial quantity</td>
+    <td class="tg-0pky">Mean squared error of these 500 projected <img src="https://render.githubusercontent.com/render/math?math=\hat{\lambda}_1"> as an estimator of the observed complete-trial quantity (actual.hazard.1)</td>
     <td class="tg-0pky">Numeric</td>
   </tr>
 
