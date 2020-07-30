@@ -229,6 +229,7 @@ out <- foreach(n = 1:8, .combine=rbind) %dopar% one_run(M, ni, hr, t.dist, t.the
 registerDoSEQ()
 
 # Creating and writing output dataframe
-out.name <- paste0(paste("est_cp", t.theta, f.theta, log(hr), index, sep="_"), ".csv")
+setting <- ifelse(M==90, "moderate_m", "large_m")
+out.name <- paste0(paste(paste0("data/simulation-results/", setting), t.theta, f.theta, log(hr), index, sep="_"), ".csv")
 write.csv(out, out.name, row.names=FALSE)
 

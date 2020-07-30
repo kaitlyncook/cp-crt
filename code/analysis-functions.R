@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------#
 
 library(ggplot2)
-library(viridis)
-library(grid)
 library(gridExtra)
 library(ggmosaic)
 library(rootSolve)

@@ -2,8 +2,27 @@
 
 This repository contains all of the data and code needed to replicate the simulation studies and to reproduce the data analysis in the manuscript entitled "Estimation of Conditional Power for Cluster-Randomized Trials with Interval-Censored Endpoints". Code is licensed under the MIT License, and data under the CC-0 License.
 
+## "code" Folder
 
-## data Folder
+This folder contains all of the R functions and scripts needed to implement the proposed conditional power procedure and to generate the figures and tables included in the manuscript. The scripts require that the following packages are installed in R: *coxme*, *doParallel*, *foreach*, *frailtypack*, *ggplot2*, *ggmosaic*, *gridExtra*, *icenReg*, *rootSolve*, *survival*, and *viridisLite*. Once these packages are installed (the scripts will load them as needed), and once the working directory has been set to the location of the cp-crt repository on the local machine, the code should run without error. 
+
++ **cp-functions.R**: Contains all functions needed to generate simulated data corresponding to CRTs with interval-censored endpoints and to estimate study (conditional) power. This script is sourced by all other simulation/analysis scripts, and so should not need to be run separately.
+
++ **sample-primary-simulation-script.R**:  Conducts eight simulation replicates for one setting of the primary simulation study. Please note that the script is written assuming a machine with at least 8 cores, as the script runs these 8 replicates in parallel. To specify a different number of cores, please change `registerDoParallel(cores=8)` to `registerDoParallel(cores=xx)`, where `xx` is the number of available cores. Alternatively, to run the replicates serially, simply comment out this line. Given the computational complexity of the proposed method and the scope of the simulation study, we recommend running the simulation on a cluster computing node. Collated simulation results are provided in the "data/simulation-results" subfolder.
+
++ **sample-cluster-size-script.R**: Conducts eight simulation replicates for one setting of the cluster size sensitivity analysis. Collated simulation results are provided in the "data/simulation-results" subfolder. 
+
++ **sample-frequency-script.R**: Conducts eight simulation replicates for one setting of the monitoring frequency sensitivity analysis. Collated simulation results are provided in the "data/simulation-results" subfolder. 
+
++ **sample-re-script.R**: Conducts eight simulation replicates for one setting of the frailty misspecification sensitivity analysis. Collated simulation results are provided in the "data/simulation-results" subfolder. 
+
++ **analysis-functions.R**: Contains all functions needed to summarize and visualize the simulation results. This script is sourced by **figure-table-generation.R**, and so should not need to be run separately.
+
++ **figure-table-generation.R**: Imports simulation results from the "data/simulation-results" subfolder and produces all of the figures and tables in the manuscript and supporting information. All figures will be saved as .pdf files in the current working directory and all tables will be printed to the R console.
+
++ **data-application.R**: Imports **simulated-bcpp.csv** and implements the conditional power analysis described in Section 4 of the manuscript. All results needed to create Table 1 will be printed to the R console.
+
+## "data" Folder
 
 This folder contains the data imported in the scripts **data-application.R** and **figure-table-generation.R**. Contents are as follows:
 
@@ -17,7 +36,7 @@ This folder contains the data imported in the scripts **data-application.R** and
 | left          | Left endpoint of the censoring interval for HIV seroconversion  | Numeric       |   
 | right         | Right endpoint of the censoring interval for HIV seroconversion | Numeric       |   
 
-+ **"data/simulation-results/"**: Subfolder containing all .csv simulation output files, which are subsequently processed and used to generate all manuscript figures and tables in **figure-table-generation.R**.  Select variable names and descriptions  (shared across most results files) are below.
++ **"data/simulation-results"**: Subfolder containing all .csv simulation output files, which are subsequently processed and used to generate all manuscript figures and tables in **figure-table-generation.R**.  Select variable names and descriptions  (shared across most results files) are below.
 
 <table class="tg">
 <thead>
@@ -29,7 +48,7 @@ This folder contains the data imported in the scripts **data-application.R** and
 </thead>
 <tbody>
    <tr>
-    	<td colspan="3" class="tg-c3ow" style="text-align:center">Attributes of the CRT Design</td>
+    	<td colspan="3" class="tg-c3ow" style="text-align:center"><i>Attributes of the CRT Design</i></td>
   </tr>
   <tr>
     <td class="tg-0pky">M</td>
@@ -62,7 +81,7 @@ This folder contains the data imported in the scripts **data-application.R** and
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
-    	<td colspan="3" class="tg-c3ow" style="text-align:center">Features of the Simulated Complete and Interim Datasets</td>
+    	<td colspan="3" class="tg-c3ow" style="text-align:center"><i>Features of the Simulated Complete and Interim Datasets</i></td>
   </tr>
   <tr>
     <td class="tg-0pky">actual.f.theta</td>
@@ -95,7 +114,7 @@ This folder contains the data imported in the scripts **data-application.R** and
     <td class="tg-0pky">Numeric</td>
   </tr>
   <tr>
-    	<td colspan="3" class="tg-c3ow" style="text-align:center">Conditional Power Using the Interim-Estimated (<img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{0}">, <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{1}">, <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}">, <img src="https://render.githubusercontent.com/render/math?math=\hat{\eta}">)</td>
+    	<td colspan="3" class="tg-c3ow" style="text-align:center"><i>Conditional Power Using the Interim-Estimated</i> (<img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{0}">, <img src="https://render.githubusercontent.com/render/math?math=\tilde{\lambda}_{1}">, <img src="https://render.githubusercontent.com/render/math?math=\hat{\theta}">, <img src="https://render.githubusercontent.com/render/math?math=\hat{\eta}">)</td>
   </tr>
   <tr>
     <td class="tg-0pky">cp</td>
@@ -133,7 +152,7 @@ This folder contains the data imported in the scripts **data-application.R** and
     <td class="tg-0pky">Numeric</td>
   </tr>
    <tr>
-   	<td colspan="3" class="tg-c3ow" style="text-align:center">Conditional Power Using the Data-Generating (<img src="https://render.githubusercontent.com/render/math?math=\lambda_{0}">, <img src="https://render.githubusercontent.com/render/math?math=\lambda_{1}">, <img src="https://render.githubusercontent.com/render/math?math=\theta">, <img src="https://render.githubusercontent.com/render/math?math=\bm{\eta}">)</td>
+   	<td colspan="3" class="tg-c3ow" style="text-align:center"><i>Conditional Power Using the Data-Generating</i> (<img src="https://render.githubusercontent.com/render/math?math=\lambda_{0}">, <img src="https://render.githubusercontent.com/render/math?math=\lambda_{1}">, <img src="https://render.githubusercontent.com/render/math?math=\theta">, <img src="https://render.githubusercontent.com/render/math?math=\eta">)</td>
   </tr>
   <tr>
     <td class="tg-0pky">known.cp</td>
@@ -173,6 +192,3 @@ This folder contains the data imported in the scripts **data-application.R** and
 
 </tbody>
 </table>
-
-% Mention what packages will need to be installed 
-% All scripts load the necessary packages, and are written assuming that cp-crt is the working directory
