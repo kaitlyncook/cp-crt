@@ -3,10 +3,11 @@
 #-----------------------------------------------------------------------------------------------------#
 
 library(ggplot2)
+library(grid)
 library(gridExtra)
 library(ggmosaic)
 library(rootSolve)
-library(viridisLite)
+library(viridis)
 
 
 #-----------------------------------------------------------------------------------------------------

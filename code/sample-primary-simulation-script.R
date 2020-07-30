@@ -66,10 +66,8 @@ one_run <- function(M, ni, hr, t.dist, t.theta, f.dist, f.theta, start.times, st
   actual.pt <- by(full.data, full.data$treat, FUN=function(x) sum(ifelse(x$right==Inf, x$left, (x$left + x$right)/2)))
   actual.f <- est_frail(full.data, f.dist)
   actual.curves <- est_curve(full.data, f.dist, actual.f$theta)
-  q0 <- quantile(ifelse(full.data$right[full.data$treat==0]==Inf, full.data$left[full.data$treat==0], full.data$right[full.data$treat==0]), probs=q)
-  q1 <- quantile(ifelse(full.data$right[full.data$treat==1]==Inf, full.data$left[full.data$treat==1], full.data$right[full.data$treat==1]), probs=q)
-  actual.hazard.0 <- est_hazard(actual.curves$control, end.point = q0)
-  actual.hazard.1 <- est_hazard(actual.curves$treat, end.point = q1)
+  actual.hazard.0 <- est_hazard(actual.curves$control, end.point = visit.times[length(visit.times)])
+  actual.hazard.1 <- est_hazard(actual.curves$treat, end.point = visit.times[length(visit.times)])
   actual.hr <- actual.hazard.1/actual.hazard.0
   cens.data <- full.data
   cens.data[which(full.data$right != Inf), 'left'] <- full.data$right[which(full.data$right != Inf)]

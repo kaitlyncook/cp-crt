@@ -63,17 +63,15 @@ one_run <- function(M, ni, hr, t.dist, t.theta, f.dist, f.theta, start.times, st
   # Generating the full-trial data 
   full.out <- gen_ic_data(M, ni, hr, t.dist, t.theta, f.dist, f.theta, start.times, start.delta, visit.times, 
                           visit.delta, cens, paired)
-  full.data <- format_data(full.out[[1]]); true.omega <- full.out[[2]]
+  full.data <- format_data(full.out[[1]]); true.eta <- full.out[[2]]
   
   # Summarizing the generated full-trial data
   actual.events <- by(full.data, full.data$treat, FUN=function(x) sum(x$right != Inf))
   actual.pt <- by(full.data, full.data$treat, FUN=function(x) sum(ifelse(x$right==Inf, x$left, (x$left + x$right)/2)))
   actual.f <- est_frail(full.data, f.dist)
   actual.curves <- est_curve(full.data, f.dist, actual.f$theta)
-  q0 <- quantile(ifelse(full.data$right[full.data$treat==0]==Inf, full.data$left[full.data$treat==0], full.data$right[full.data$treat==0]), probs=q)
-  q1 <- quantile(ifelse(full.data$right[full.data$treat==1]==Inf, full.data$left[full.data$treat==1], full.data$right[full.data$treat==1]), probs=q)
-  actual.hazard.0 <- est_hazard(actual.curves$control, end.point = q0)
-  actual.hazard.1 <- est_hazard(actual.curves$treat, end.point = q1)
+  actual.hazard.0 <- est_hazard(actual.curves$control, end.point = visit.times[length(visit.times)])
+  actual.hazard.1 <- est_hazard(actual.curves$treat, end.point = visit.times[length(visit.times)])
   actual.hr <- actual.hazard.1/actual.hazard.0
   cens.data <- full.data
   cens.data[which(full.data$right != Inf), 'left'] <- full.data$right[which(full.data$right != Inf)]
@@ -121,7 +119,7 @@ one_run <- function(M, ni, hr, t.dist, t.theta, f.dist, f.theta, start.times, st
   
   # Calculating conditional power: known hazards and frailties (under gamma frailty model)
   known.cp <- est_cp(int.data, interim, visit.times, visit.delta, l0.delta, l1.delta, p_value, 0.05, 500, 
-                     f.dist=f.dist, omega=true.omega, f.theta=f.theta, l0=t.theta, l1=t.theta*hr, cens=cens,
+                     f.dist=f.dist, eta=true.eta, f.theta=f.theta, l0=t.theta, l1=t.theta*hr, cens=cens,
                      trunc.time=c(visit.times[interim.visit], visit.times[length(visit.times)]))
   
   # Store simulation results

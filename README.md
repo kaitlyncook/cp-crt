@@ -4,7 +4,7 @@ This repository contains all of the data and code needed to replicate the simula
 
 ## "code" Folder
 
-This folder contains all of the R functions and scripts needed to implement the proposed conditional power procedure and to generate the figures and tables included in the manuscript. The scripts require that the following packages are installed in R: *coxme*, *doParallel*, *foreach*, *frailtypack*, *ggplot2*, *ggmosaic*, *gridExtra*, *icenReg*, *rootSolve*, *survival*, and *viridisLite*. Once these packages are installed (the scripts will load them as needed), and once the working directory has been set to the location of the `cp-crt` repository on the local machine, the code should run without error. 
+This folder contains all of the R functions and scripts needed to implement the proposed conditional power procedure and to generate the figures and tables included in the manuscript. The scripts require that the following packages are installed in R: *coxme*, *doParallel*, *foreach*, *frailtypack*, *ggplot2*, *ggmosaic*, *grid*, *gridExtra*, *icenReg*, *rootSolve*, *survival*, and *viridis*. Once these packages are installed (the scripts will load them as needed), and once the working directory has been set to the location of the `cp-crt` repository on the local machine, the code should run without error. 
 
 + **cp-functions.R**: Contains all functions needed to generate simulated data corresponding to CRTs with interval-censored endpoints and to estimate study (conditional) power. This script is sourced by all other simulation and data application scripts, and so should not need to be run separately.
 
